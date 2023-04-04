@@ -6,10 +6,16 @@
 
 {% block content %}
   <form method="post">
-    <label for="username">Username</label>
-    <input name="username" id="username" required>
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" required>
-    <input type="submit" value="Log In">
+    <div class="input-field">
+        <input name="username" type="text" id="username" required>
+        <label class="active" for="username">Username</label>
+    </div>
+    <div class="input-field">
+        <input type="password" name="password" id="password" required>
+        <label class="active" for="password">Password</label>
+    </div>
+    <button class="btn" type="submit">Log In
+        <i class="material-icons right">person</i>
+    </button>
   </form>
 {% endblock %}
