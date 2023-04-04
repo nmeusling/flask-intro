@@ -1,15 +1,27 @@
 {% extends 'base.html' %}
 
 {% block header %}
-  <h1>{% block title %}New Post{% endblock %}</h1>
+  {% block title %}New Post{% endblock %}
 {% endblock %}
 
 {% block content %}
+
+<div class="row">
   <form method="post">
-    <label for="title">Title</label>
-    <input name="title" id="title" value="{{ request.form['title'] }}" required>
-    <label for="body">Body</label>
-    <textarea name="body" id="body">{{ request.form['body'] }}</textarea>
-    <input type="submit" value="Save">
+    <div class="input-field">
+        <label class="active" for="title">Title</label>
+        <input name="title" id="title" value="{{ request.form['title'] }}" required>
+    </div>
+
+    
+    <div class = "input-field">
+        <label class="active" for="body">Body</label>
+        <textarea class="materialize-textarea" name="body" id="body">{{ request.form['body'] }}</textarea>
+    </div>
+
+    <button class="btn" type="submit">Save
+        <i class="material-icons right">save</i>
+    </button>
   </form>
+</div>
 {% endblock %}
