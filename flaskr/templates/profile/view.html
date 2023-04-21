@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% block title %}Profile{% endblock %}
+{% endblock %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="card blue-grey lighten-5">
+        <div class="card-content">
+            <span class="card-title">
+              {{ post.title }} <a href=" {{ url_for('blog.view', id=post['id']) }}"> <i class="small material-icons grey-text text-darken-1">visibility</i></a>
+              {% if g.user['id'] == post['author_id'] %}
+                <a href="{{ url_for('blog.update', id=post['id']) }}"><i class="small material-icons orange-text text-darken-2">edit</i></a>
+              {% endif %}
+            </span>
+            <p>{{ post['body'] }}</p>
+        </div>
+        <div class="card-action">
+            <div class="about">by {{ post['username'] }} on {{ post['created'].strftime('%Y-%m-%d') }}
+            </div>  
+        </div>
+    </div>
+  {% endfor %}
+{% endblock %}
