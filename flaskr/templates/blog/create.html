@@ -10,13 +10,13 @@
   <form method="post">
     <div class="input-field">
         <label class="active" for="title">Title</label>
-        <input name="title" id="title" value="{{ request.form['title'] }}" required>
+        <input type="text" name="title" id="title" value="{{ request.form['title'] }}" required>
     </div>
 
     
     <div class = "input-field">
         <label class="active" for="body">Body</label>
-        <textarea class="materialize-textarea" name="body" id="body">{{ request.form['body'] }}</textarea>
+        <textarea type="text" class="materialize-textarea" name="body" id="body" value="{{ request.form['body'] }}"></textarea>
     </div>
 
     <button class="btn" type="submit">Save
