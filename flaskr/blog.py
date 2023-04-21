@@ -83,6 +83,11 @@ def update(id):
             return redirect(url_for('blog.index'))
     return render_template('blog/update.html', post=post)
 
+@bp.route('/<int:id>/view', methods=("GET",))
+def view(id):
+    post = get_post(id, check_author=False)
+    return render_template('blog/view.html', post=post)
+
 @bp.route('/<int:id>/delete', methods=('POST',))
 @login_required
 def delete(id):

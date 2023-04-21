@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  {% block title %}View "{{ post['title'] }}"{% endblock %}
+{% endblock %}
+
+{% block content %}
+    <div class="input-field">
+        <label class="active" for="title">Title</label>
+        <input disabled name="title" id="title"
+        value="{{ request.form['title'] or post['title'] }}" required>
+    </div>
+    <div class="input-field">
+        <label class="active" for="body">Body</label>
+        <textarea disabled class="materialize-textarea" name="body" id="body">{{ request.form['body'] or post['body'] }}</textarea>
+    </div>
+{% endblock %}
